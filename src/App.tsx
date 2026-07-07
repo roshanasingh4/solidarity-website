@@ -26,6 +26,7 @@ import FeeCalculationToolPage from './pages/FeeCalculationToolPage'
 import PerspectivesListingPage from './pages/PerspectivesListingPage'
 import SinglePostPage from './pages/SinglePostPage'
 import InvestmentApproachPage from './pages/InvestmentApproachPage'
+import VotingDisclosuresPage from './pages/VotingDisclosuresPage'
 
 import './App.css'
 
@@ -61,6 +62,7 @@ function getTitleForPath(pathname: string): string {
   else if (pathname === '/privacy-policy') title = "Privacy Policy"
   else if (pathname === '/disclaimer') title = "Disclaimer"
   else if (pathname === '/upi-payment-details') title = "UPI Payment Details"
+  else if (pathname === '/product/aif/voting-disclosures') title = "Voting Disclosures"
 
   return `${title} – ${base}`
 }
@@ -128,6 +130,7 @@ function AppShell() {
         <Route path="/direct-onboarding"    element={<DirectOnboardingPage />} />
         <Route path="/faqs"                 element={<FAQPage />} />
         <Route path="/investment-approach"  element={<InvestmentApproachPage />} />
+        <Route path="/product/aif/voting-disclosures" element={<VotingDisclosuresPage />} />
 
         {/* Perspectives */}
         <Route path="/perspectives/blogs"              element={<PerspectivesListingPage categoryTitle="Perspectives" filterCategory="Blogs" />} />

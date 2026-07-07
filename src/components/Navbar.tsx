@@ -34,12 +34,17 @@ const navItems: NavItem[] = [
           { label: 'Product Offering', href: '/product-offering' },
           { label: 'FAQs', href: '/faqs' },
           { label: 'Direct Onboarding', href: '/direct-onboarding' },
+          { label: 'Investor charter', href: '/wp-content/uploads/2026/05/Investor-Charter-PMS-v1.pdf', external: true },
+          { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure-B-MAY-26-NEW-FORMAT.pdf', external: true },
         ],
       },
       {
         label: 'AIF',
         dropdown: [
           { label: 'Product Offering', href: '/product-offering-2' },
+          { label: 'Investor charter', href: '/wp-content/uploads/2026/05/Investor-charter-for-AIF-16-Apr-26_V2.pdf', external: true },
+          { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure B- JUN  26-NEW FORMAT-AIF_v2.pdf', external: true },
+          { label: 'Voting disclosures', href: '/product/aif/voting-disclosures' },
         ],
       },
     ],
@@ -61,11 +66,8 @@ const navItems: NavItem[] = [
   {
     label: 'Disclosures',
     dropdown: [
-      { label: 'INVESTOR CHARTER – PMS', href: '/wp-content/uploads/2026/05/Investor-Charter-PMS-v1.pdf', external: true },
-      { label: 'INVESTOR CHARTER – AIF', href: '/wp-content/uploads/2026/05/Investor-charter-for-AIF-16-Apr-26_V2.pdf', external: true },
       { label: 'DISCLOSURE DOCUMENT', href: '/wp-content/uploads/2026/01/Disclosure_document_SAPL_22_Jan_2026.pdf', external: true },
       { label: 'FEE CALCULATION TOOL', href: '/fee-calculation-tool' },
-      { label: 'INVESTOR COMPLAINTS', href: '/wp-content/uploads/2026/06/Annexure-B-MAY-26-NEW-FORMAT.pdf', external: true },
       { label: 'UPI PAYMENT DETAILS', href: '/upi-payment-details' },
       { label: 'STEWARDSHIP CODE – AIF', href: '/wp-content/uploads/2026/01/Stewarship-Code_NP-7Jan26.pdf', external: true },
       { label: 'CSR POLICY', href: '/wp-content/uploads/2026/06/CSR-policy-4-Jun-26.pdf', external: true },

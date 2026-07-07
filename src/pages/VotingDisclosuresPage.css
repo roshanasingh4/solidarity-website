@@ -1,0 +1,49 @@
+.voting-disclosures-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.voting-disclosures-main {
+  min-width: 0;
+}
+
+.voting-disclosures-section {
+  background: #fff;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.voting-disclosures-year-title {
+  font-family: var(--font-body);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-h4);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--color-h4);
+  padding-bottom: 0.5rem;
+}
+
+.voting-disclosures-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.voting-disclosures-btn {
+  /* Inherits from .cta-btn */
+}
+
+@media (max-width: 900px) {
+  .voting-disclosures-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
