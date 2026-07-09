@@ -35,7 +35,7 @@ const navItems: NavItem[] = [
           { label: 'FAQs', href: '/faqs' },
           { label: 'Direct Onboarding', href: '/direct-onboarding' },
           { label: 'Investor charter', href: '/wp-content/uploads/2026/05/Investor-Charter-PMS-v1.pdf', external: true },
-          { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure-B-MAY-26-NEW-FORMAT.pdf', external: true },
+          { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure B- JUN 26-NEW FORMAT-PMS.pdf', external: true },
         ],
       },
       {
