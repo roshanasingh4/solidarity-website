@@ -8,6 +8,20 @@ export default function VotingDisclosuresPage() {
       <div className="voting-disclosures-container">
         <div className="voting-disclosures-main">
           <div className="voting-disclosures-section">
+            <h2 className="voting-disclosures-year-title">FY 2026-27</h2>
+            <div className="voting-disclosures-buttons">
+              <a
+                href="/wp-content/uploads/2026/07/Solidarity-Micro-Cap-Emerging-Leader-AIF-letterhead-for-voting-Q1FY27.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-btn voting-disclosures-btn"
+              >
+                Q1FY27
+              </a>
+            </div>
+          </div>
+
+          <div className="voting-disclosures-section">
             <h2 className="voting-disclosures-year-title">FY 2025-26</h2>
             <div className="voting-disclosures-buttons">
               <a
