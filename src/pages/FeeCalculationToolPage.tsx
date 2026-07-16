@@ -22,7 +22,7 @@ export default function FeeCalculationToolPage() {
             </a>
           </strong>{' '}
           and you may write to{' '}
-          <a href="mailto:contact@solidarity.in">contact@solidarity.in</a> if you have any questions 
+          <a href="mailto:saplops@solidarity.in">saplops@solidarity.in</a> if you have any questions{' '}
           or need further clarification.
         </p>
       </div>
