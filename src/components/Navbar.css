@@ -127,8 +127,7 @@
   pointer-events: none;
 }
 
-.navbar__dropdown--open,
-.navbar__item--has-dropdown:hover .navbar__dropdown {
+.navbar__dropdown--open {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -161,7 +160,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: default;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
 }
 
 .navbar__sub-chevron {
@@ -189,7 +192,7 @@
   pointer-events: none;
 }
 
-.navbar__dropdown-item--has-sub:hover .navbar__sub-dropdown {
+.navbar__sub-dropdown--open {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -265,6 +268,22 @@
   border-radius: 2px;
   transform-origin: center;
   transition: transform var(--transition-fast), opacity var(--transition-fast), width var(--transition-fast);
+}
+
+.navbar__link:focus-visible,
+.navbar__hamburger:focus-visible,
+.mobile-menu__link:focus-visible,
+.mobile-menu__sub-link:focus-visible,
+.mobile-menu__sub-child-link:focus-visible {
+  outline: 3px solid #f6c344;
+  outline-offset: -3px;
+}
+
+.navbar__dropdown-link:focus-visible,
+.navbar--scrolled .navbar__link:focus-visible,
+.navbar--scrolled .navbar__hamburger:focus-visible {
+  outline: 3px solid #1f4b99;
+  outline-offset: -3px;
 }
 
 .navbar--scrolled .navbar__hamburger span {

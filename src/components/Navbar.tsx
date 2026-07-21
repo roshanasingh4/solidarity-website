@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './Navbar.css'
 
@@ -34,6 +34,7 @@ const navItems: NavItem[] = [
           { label: 'Product Offering', href: '/product-offering' },
           { label: 'FAQs', href: '/faqs' },
           { label: 'Direct Onboarding', href: '/direct-onboarding' },
+          { label: 'Empaneled distributors', href: '/product/pms/empaneled-distributors' },
           { label: 'Investor charter', href: '/wp-content/uploads/2026/05/Investor-Charter-PMS-v1.pdf', external: true },
           { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure B- JUN 26-NEW FORMAT-PMS.pdf', external: true },
         ],
@@ -82,15 +83,27 @@ const navItems: NavItem[] = [
 
 export default function Navbar() {
   const { pathname } = useLocation()
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const mobileMenuRef = useRef<HTMLDivElement>(null)
+  const desktopTriggerRefs = useRef<Array<HTMLButtonElement | null>>([])
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<number | null>(null)
+  const [openSubDropdown, setOpenSubDropdown] = useState<string | null>(null)
   const [openMobileDropdown, setOpenMobileDropdown] = useState<number | null>(null)
   const [openMobileSubDropdown, setOpenMobileSubDropdown] = useState<string | null>(null)
 
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 60)
   }, [])
+
+  useEffect(() => {
+    setOpenDropdown(null)
+    setOpenSubDropdown(null)
+    setMobileOpen(false)
+    setOpenMobileDropdown(null)
+    setOpenMobileSubDropdown(null)
+  }, [pathname])
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true })
@@ -114,6 +127,74 @@ export default function Navbar() {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
+
+  useEffect(() => {
+    if (!mobileOpen) return
+
+    const focusFrame = window.requestAnimationFrame(() => {
+      mobileMenuRef.current
+        ?.querySelector<HTMLElement>('a[href], button:not([disabled])')
+        ?.focus()
+    })
+
+    const handleMenuKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault()
+        setMobileOpen(false)
+        window.requestAnimationFrame(() => hamburgerRef.current?.focus())
+        return
+      }
+
+      if (event.key !== 'Tab') return
+
+      const menuControls = Array.from(
+        mobileMenuRef.current?.querySelectorAll<HTMLElement>('a[href], button:not([disabled])') ?? [],
+      ).filter((element) => !element.closest('[hidden]'))
+
+      if (menuControls.length === 0) return
+
+      const firstElement = menuControls[0]
+      const lastElement = menuControls[menuControls.length - 1]
+      const closeElement = hamburgerRef.current
+
+      if (!mobileMenuRef.current?.contains(document.activeElement)) {
+        event.preventDefault()
+        ;(event.shiftKey ? lastElement : firstElement).focus()
+        return
+      }
+
+      if (event.shiftKey && document.activeElement === firstElement) {
+        event.preventDefault()
+        ;(closeElement ?? lastElement).focus()
+      } else if (!event.shiftKey && document.activeElement === lastElement) {
+        event.preventDefault()
+        ;(closeElement ?? firstElement).focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleMenuKeyDown)
+    return () => {
+      window.cancelAnimationFrame(focusFrame)
+      document.removeEventListener('keydown', handleMenuKeyDown)
+    }
+  }, [mobileOpen])
+
+  useEffect(() => {
+    if (openDropdown === null || mobileOpen) return
+
+    const handleDesktopMenuKeyDown = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return
+
+      event.preventDefault()
+      const trigger = desktopTriggerRefs.current[openDropdown]
+      setOpenSubDropdown(null)
+      setOpenDropdown(null)
+      window.requestAnimationFrame(() => trigger?.focus())
+    }
+
+    document.addEventListener('keydown', handleDesktopMenuKeyDown)
+    return () => document.removeEventListener('keydown', handleDesktopMenuKeyDown)
+  }, [mobileOpen, openDropdown])
 
   const isActive = (item: NavItem) => {
     if (item.dropdown) {
@@ -164,14 +245,21 @@ export default function Navbar() {
                 key={i}
                 className={`navbar__item${item.dropdown ? ' navbar__item--has-dropdown' : ''}`}
                 onMouseEnter={() => item.dropdown && setOpenDropdown(i)}
-                onMouseLeave={() => setOpenDropdown(null)}
+                onMouseLeave={() => {
+                  setOpenDropdown(null)
+                  setOpenSubDropdown(null)
+                }}
               >
                 {item.href && !item.dropdown ? (
                   renderLink({ href: item.href, label: item.label, external: item.external }, `navbar__link${isActive(item) ? ' navbar__link--active' : ''}`)
                 ) : (
                   <button
+                    ref={(element) => { desktopTriggerRefs.current[i] = element }}
                     className={`navbar__link navbar__link--btn${isActive(item) ? ' navbar__link--active' : ''}`}
-                    onClick={() => setOpenDropdown(openDropdown === i ? null : i)}
+                    onClick={() => {
+                      setOpenDropdown(openDropdown === i ? null : i)
+                      setOpenSubDropdown(null)
+                    }}
                     aria-haspopup="true"
                     aria-expanded={openDropdown === i}
                   >
@@ -183,23 +271,42 @@ export default function Navbar() {
                 {item.dropdown && (
                   <ul
                     className={`navbar__dropdown${openDropdown === i ? ' navbar__dropdown--open' : ''}`}
-                    role="menu"
                   >
                     {item.dropdown.map((sub, j) => (
                         <li
                           key={j}
                           className={`navbar__dropdown-item${sub.dropdown ? ' navbar__dropdown-item--has-sub' : ''}`}
-                          role="menuitem"
+                          onMouseEnter={() => sub.dropdown && setOpenSubDropdown(`${i}-${j}`)}
+                          onMouseLeave={(event) => {
+                            if (sub.dropdown && !event.currentTarget.contains(document.activeElement)) {
+                              setOpenSubDropdown(null)
+                            }
+                          }}
+                          onBlur={(event) => {
+                            if (sub.dropdown && !event.currentTarget.contains(event.relatedTarget)) {
+                              setOpenSubDropdown(null)
+                            }
+                          }}
                         >
                           {sub.dropdown ? (
                             <>
-                              <div className="navbar__dropdown-link navbar__dropdown-link--parent">
+                              <button
+                                type="button"
+                                className="navbar__dropdown-link navbar__dropdown-link--parent"
+                                aria-expanded={openSubDropdown === `${i}-${j}`}
+                                aria-controls={`desktop-submenu-${i}-${j}`}
+                                onFocus={() => setOpenSubDropdown(`${i}-${j}`)}
+                                onClick={() => setOpenSubDropdown(openSubDropdown === `${i}-${j}` ? null : `${i}-${j}`)}
+                              >
                                 <span>{sub.label}</span>
-                                <span className="navbar__sub-chevron">›</span>
-                              </div>
-                              <ul className="navbar__sub-dropdown" role="menu">
+                                <span className="navbar__sub-chevron" aria-hidden="true">›</span>
+                              </button>
+                              <ul
+                                id={`desktop-submenu-${i}-${j}`}
+                                className={`navbar__sub-dropdown${openSubDropdown === `${i}-${j}` ? ' navbar__sub-dropdown--open' : ''}`}
+                              >
                                 {sub.dropdown.map((child, k) => (
-                                  <li key={k} className="navbar__dropdown-item" role="menuitem">
+                                  <li key={k} className="navbar__dropdown-item">
                                     {child.external ? (
                                       <a href={child.href} target="_blank" rel="noopener noreferrer" className="navbar__dropdown-link">
                                         {child.label}
@@ -234,8 +341,13 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
+            type="button"
+            ref={hamburgerRef}
             className={`navbar__hamburger${mobileOpen ? ' navbar__hamburger--open' : ''}`}
             onClick={() => setMobileOpen(v => !v)}
+            aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+            aria-controls="mobile-menu"
+            aria-expanded={mobileOpen}
           >
             <span /><span /><span />
           </button>
@@ -244,8 +356,10 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
+        ref={mobileMenuRef}
         id="mobile-menu"
         className={`mobile-menu${mobileOpen ? ' mobile-menu--open' : ''}`}
+        aria-hidden={!mobileOpen}
       >
         <div className="mobile-menu__header container">
           <div className="navbar__logo">
@@ -269,12 +383,15 @@ export default function Navbar() {
                       {item.label}
                       <span className="mobile-menu__chevron" aria-hidden="true">▾</span>
                     </button>
-                    <ul className={`mobile-menu__sub${openMobileDropdown === i ? ' mobile-menu__sub--open' : ''}`} role="menu">
+                    <ul
+                      className={`mobile-menu__sub${openMobileDropdown === i ? ' mobile-menu__sub--open' : ''}`}
+                      hidden={openMobileDropdown !== i}
+                    >
                       {item.dropdown.map((sub, j) => {
                         const subKey = `${i}-${j}`;
                         const isSubOpen = openMobileSubDropdown === subKey;
                         return (
-                          <li key={j} className="mobile-menu__sub-item" role="menuitem">
+                          <li key={j} className="mobile-menu__sub-item">
                             {sub.dropdown ? (
                               <>
                                 <button
@@ -286,9 +403,12 @@ export default function Navbar() {
                                   {sub.label}
                                   <span className="mobile-menu__chevron" aria-hidden="true">▾</span>
                                 </button>
-                                <ul className={`mobile-menu__sub-child${isSubOpen ? ' mobile-menu__sub-child--open' : ''}`} role="menu">
+                                <ul
+                                  className={`mobile-menu__sub-child${isSubOpen ? ' mobile-menu__sub-child--open' : ''}`}
+                                  hidden={!isSubOpen}
+                                >
                                   {sub.dropdown.map((child, k) => (
-                                    <li key={k} className="mobile-menu__sub-child-item" role="menuitem">
+                                    <li key={k} className="mobile-menu__sub-child-item">
                                       {child.external ? (
                                         <a href={child.href} target="_blank" rel="noopener noreferrer" className="mobile-menu__sub-child-link" onClick={() => setMobileOpen(false)}>
                                           {child.label}

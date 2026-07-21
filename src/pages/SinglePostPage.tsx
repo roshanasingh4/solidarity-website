@@ -36,7 +36,7 @@ export default function SinglePostPage() {
           {post ? (
             <>
               <div className="post-banner__date">{post.date}</div>
-              <h1 className="post-banner__title">{post.title}</h1>
+              <h1 className="post-banner__title" tabIndex={-1}>{post.title}</h1>
               <div className="post-banner__meta">
                 by {post.author} in{' '}
                 {post.categoryLinks.map((c: { label: string; path: string }, i: number) => (
@@ -48,7 +48,7 @@ export default function SinglePostPage() {
               </div>
             </>
           ) : (
-            <h1 className="post-banner__title">Perspectives</h1>
+            <h1 className="post-banner__title" tabIndex={-1}>Perspectives</h1>
           )}
         </div>
       </div>

@@ -7,7 +7,7 @@ export default function HomePage() {
       <section id="hero" className="hero">
         <div className="hero__overlay" aria-hidden="true" />
         <div className="hero__content">
-          <h1 className="hero__headline">
+          <h1 className="hero__headline" tabIndex={-1}>
             We are an independent, boutique, partner-centric Investment Management firm
             investing in listed Indian equities.
           </h1>
