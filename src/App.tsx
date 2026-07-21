@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
@@ -27,6 +27,7 @@ import PerspectivesListingPage from './pages/PerspectivesListingPage'
 import SinglePostPage from './pages/SinglePostPage'
 import InvestmentApproachPage from './pages/InvestmentApproachPage'
 import VotingDisclosuresPage from './pages/VotingDisclosuresPage'
+import EmpaneledDistributorsPage from './pages/EmpaneledDistributorsPage'
 
 import './App.css'
 
@@ -63,15 +64,27 @@ function getTitleForPath(pathname: string): string {
   else if (pathname === '/disclaimer') title = "Disclaimer"
   else if (pathname === '/upi-payment-details') title = "UPI Payment Details"
   else if (pathname === '/product/aif/voting-disclosures') title = "Voting Disclosures"
+  else if (pathname === '/product/pms/empaneled-distributors') title = "Empaneled Distributors"
 
   return `${title} – ${base}`
 }
 
 function RouteChangeHandler() {
   const { pathname } = useLocation()
+  const previousPathname = useRef(pathname)
+
   useEffect(() => { 
     window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior })
     document.title = getTitleForPath(pathname)
+
+    if (previousPathname.current === pathname) return
+    previousPathname.current = pathname
+
+    const focusFrame = window.requestAnimationFrame(() => {
+      document.querySelector<HTMLElement>('h1')?.focus({ preventScroll: true })
+    })
+
+    return () => window.cancelAnimationFrame(focusFrame)
   }, [pathname])
   return null
 }
@@ -131,6 +144,7 @@ function AppShell() {
         <Route path="/faqs"                 element={<FAQPage />} />
         <Route path="/investment-approach"  element={<InvestmentApproachPage />} />
         <Route path="/product/aif/voting-disclosures" element={<VotingDisclosuresPage />} />
+        <Route path="/product/pms/empaneled-distributors" element={<EmpaneledDistributorsPage />} />
 
         {/* Perspectives */}
         <Route path="/perspectives/blogs"              element={<PerspectivesListingPage categoryTitle="Perspectives" filterCategory="Blogs" />} />
@@ -160,7 +174,10 @@ function AppShell() {
       {/* Scroll-to-top */}
       <button
         className={`scroll-top${showScrollTop ? ' visible' : ''}`}
-        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onClick={() => window.scrollTo({
+          top: 0,
+          behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+        })}
         aria-label="Back to top"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

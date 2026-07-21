@@ -15,13 +15,13 @@ interface InnerPageLayoutProps {
  */
 export default function InnerPageLayout({ title, children, bannerBg }: InnerPageLayoutProps) {
   return (
-    <main id="main-content" className="inner-page">
+    <div className="inner-page">
       <PageBanner title={title} bgImage={bannerBg} />
       <div className="inner-page__content">
         <div className="container">
           {children}
         </div>
       </div>
-    </main>
+    </div>
   )
 }
