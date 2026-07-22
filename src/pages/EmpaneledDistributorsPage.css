@@ -35,12 +35,12 @@
 }
 
 .distributors__col-name { width: 17%; }
-.distributors__col-aprn { width: 9%; }
-.distributors__col-address { width: 24%; }
+.distributors__col-aprn { width: 10%; }
+.distributors__col-address { width: 22%; }
 .distributors__col-contact { width: 13%; }
-.distributors__col-phone { width: 10%; }
-.distributors__col-email { width: 16%; }
-.distributors__col-date { width: 11%; }
+.distributors__col-phone { width: 11%; }
+.distributors__col-email { width: 15%; }
+.distributors__col-date { width: 12%; }
 
 .distributors__table th,
 .distributors__table td {
@@ -64,6 +64,13 @@
   color: #fff;
   font-weight: 700;
   vertical-align: middle;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.distributors__table .distributors__cell--nowrap {
+  white-space: nowrap;
+  overflow-wrap: normal;
 }
 
 .distributors__table tbody th {

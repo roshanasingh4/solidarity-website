@@ -96,10 +96,10 @@ export default function EmpaneledDistributorsPage() {
               {distributors.map((distributor) => (
                 <tr key={distributor.aprn}>
                   <th scope="row">{distributor.name}</th>
-                  <td>{distributor.aprn}</td>
+                  <td className="distributors__cell--nowrap">{distributor.aprn}</td>
                   <td>{distributor.address}</td>
                   <td>{distributor.contactPerson}</td>
-                  <td>
+                  <td className="distributors__cell--nowrap">
                     <a href={`tel:+91${distributor.contactNumber}`} aria-label={`Call ${distributor.contactPerson} at ${distributor.contactNumber}`}>
                       {distributor.contactNumber}
                     </a>
