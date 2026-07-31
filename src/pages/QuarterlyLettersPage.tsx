@@ -4,7 +4,7 @@ import { quarterlyLetters } from '../data/quarterlyLetters'
 
 export default function QuarterlyLettersPage() {
   return (
-    <InnerPageLayout title="Quarterly Letters" bannerBg="/assets/perspectives-banner.jpg">
+    <InnerPageLayout title="Letters to Partners" bannerBg="/assets/perspectives-banner.jpg">
       <div className="ql-container">
         <div className="ql-table-wrap">
           <table className="ql-table">
