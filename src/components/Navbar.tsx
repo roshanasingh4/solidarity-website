@@ -55,7 +55,7 @@ const navItems: NavItem[] = [
     dropdown: [
       { label: 'Insights', href: '/perspectives/blogs' },
       { label: 'Select Company Perspectives', href: '/perspectives/company-perspective' },
-      { label: 'Quarterly Letters', href: '/perspectives/quarterly-letters' },
+      { label: 'Letters to Partners', href: '/perspectives/quarterly-letters' },
       { label: 'Perspectives on Questions from Client Partners', href: '/perspectives/client-questions' },
     ],
   },
