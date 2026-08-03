@@ -36,7 +36,7 @@ const navItems: NavItem[] = [
           { label: 'Direct Onboarding', href: '/direct-onboarding' },
           { label: 'Empaneled distributors', href: '/product/pms/empaneled-distributors' },
           { label: 'Investor charter', href: '/wp-content/uploads/2026/05/Investor-Charter-PMS-v1.pdf', external: true },
-          { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure B- JUN 26-NEW FORMAT-PMS.pdf', external: true },
+          { label: 'Investor complaints', href: '/wp-content/uploads/2026/07/Annexure B- JUL 26-NEW FORMAT-PMS.pdf', external: true },
         ],
       },
       {
