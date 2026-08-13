@@ -72,6 +72,7 @@ const navItems: NavItem[] = [
       { label: 'UPI PAYMENT DETAILS', href: '/upi-payment-details' },
       { label: 'STEWARDSHIP CODE – AIF', href: '/wp-content/uploads/2026/01/Stewarship-Code_NP-7Jan26.pdf', external: true },
       { label: 'CSR POLICY', href: '/wp-content/uploads/2026/06/CSR-policy-4-Jun-26.pdf', external: true },
+      { label: 'POSH POLICY', href: '/wp-content/uploads/2026/08/POSH-Policy-29-May-2026.pdf', external: true },
       { label: 'REGULATORY INFORMATION', href: '/about-us/regulatory-details' },
     ],
   },
