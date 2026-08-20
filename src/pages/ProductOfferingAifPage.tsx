@@ -8,7 +8,7 @@ export default function ProductOfferingAifPage() {
       <div className="product-offering-container">
         <div className="product-offering-main">
           <p style={{ marginBottom: '1.5rem', lineHeight: '1.7', color: '#333' }}>
-            Solidarity Advisors Private Limited acts as the investment manager for a <strong>Category III</strong> AIF, <strong>Solidarity Micro Cap Emerging Leader AIF</strong> (“AIF Fund”), which has been formed under <strong>Solidarity Alternative Investment Trust</strong>.
+            Solidarity Advisors Private Limited acts as the investment manager for a <strong>Category III</strong> AIF, <strong>Solidarity Micro Cap Emerging Leader AIF</strong> (“AIF Fund”), which has been formed under <strong>Solidarity Alternative Investment Trust</strong>, a SEBI registered Category III AIF vide SEBI Reg. No.: IN/AIF3/25-26/1894 under SEBI (Alternative Investment Fund) Regulations, 2012.
           </p>
 
           <div className="product-offering-table-wrapper">

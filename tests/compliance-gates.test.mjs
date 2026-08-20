@@ -5,6 +5,7 @@ import test from 'node:test'
 const dataPath = new URL('../src/data/complianceDisclaimers.ts', import.meta.url)
 const gatePath = new URL('../src/components/ComplianceGates.tsx', import.meta.url)
 const navbarPath = new URL('../src/components/Navbar.tsx', import.meta.url)
+const aifProductPagePath = new URL('../src/pages/ProductOfferingAifPage.tsx', import.meta.url)
 const stylesPath = new URL('../src/components/ComplianceGates.css', import.meta.url)
 
 test('approved legal copy and versioned acceptance keys are preserved', async () => {
@@ -35,6 +36,15 @@ test('direct internal AIF routes are protected', async () => {
 
   assert.match(data, /'\/product-offering-2'/)
   assert.match(data, /'\/product\/aif\/voting-disclosures'/)
+})
+
+test('AIF product page includes the approved SEBI registration wording', async () => {
+  const page = await readFile(aifProductPagePath, 'utf8')
+
+  assert.match(
+    page,
+    /Solidarity Alternative Investment Trust<\/strong>, a SEBI registered Category III AIF vide SEBI Reg\. No\.: IN\/AIF3\/25-26\/1894 under SEBI \(Alternative Investment Fund\) Regulations, 2012\./,
+  )
 })
 
 test('dialogs expose required WCAG modal behavior', async () => {
