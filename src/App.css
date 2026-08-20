@@ -5,6 +5,10 @@
 /* Stack layout so footer sits at the bottom */
 #root {
   min-height: 100vh;
+}
+
+#app-shell {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }

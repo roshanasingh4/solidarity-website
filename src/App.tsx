@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ComplianceGates from './components/ComplianceGates'
 
 // Pages
 import HomePage from './pages/HomePage'
@@ -107,7 +108,7 @@ function AppShell() {
   }, [])
 
   return (
-    <>
+    <div id="app-shell">
       {/* Skip to main content – must be first focusable element */}
       <a href="#main-content" className="skip-to-main">Skip to main content</a>
 
@@ -184,7 +185,7 @@ function AppShell() {
           <polyline points="18 15 12 9 6 15" />
         </svg>
       </button>
-    </>
+    </div>
   )
 }
 
@@ -192,6 +193,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AppShell />
+      <ComplianceGates />
     </BrowserRouter>
   )
 }

@@ -6,6 +6,7 @@ interface DropdownItem {
   label: string
   href?: string
   external?: boolean
+  requiresAifDisclaimer?: boolean
   dropdown?: DropdownItem[]
 }
 
@@ -42,10 +43,10 @@ const navItems: NavItem[] = [
       {
         label: 'AIF',
         dropdown: [
-          { label: 'Product Offering', href: '/product-offering-2' },
-          { label: 'Investor charter', href: '/wp-content/uploads/2026/05/Investor-charter-for-AIF-16-Apr-26_V2.pdf', external: true },
-          { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure B- JUN  26-NEW FORMAT-AIF_v2.pdf', external: true },
-          { label: 'Voting disclosures', href: '/product/aif/voting-disclosures' },
+          { label: 'Product Offering', href: '/product-offering-2', requiresAifDisclaimer: true },
+          { label: 'Investor charter', href: '/wp-content/uploads/2026/05/Investor-charter-for-AIF-16-Apr-26_V2.pdf', external: true, requiresAifDisclaimer: true },
+          { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure B- JUN  26-NEW FORMAT-AIF_v2.pdf', external: true, requiresAifDisclaimer: true },
+          { label: 'Voting disclosures', href: '/product/aif/voting-disclosures', requiresAifDisclaimer: true },
         ],
       },
     ],
@@ -70,7 +71,7 @@ const navItems: NavItem[] = [
       { label: 'DISCLOSURE DOCUMENT', href: '/wp-content/uploads/2026/01/Disclosure_document_SAPL_22_Jan_2026.pdf', external: true },
       { label: 'FEE CALCULATION TOOL', href: '/fee-calculation-tool' },
       { label: 'UPI PAYMENT DETAILS', href: '/upi-payment-details' },
-      { label: 'STEWARDSHIP CODE – AIF', href: '/wp-content/uploads/2026/01/Stewarship-Code_NP-7Jan26.pdf', external: true },
+      { label: 'STEWARDSHIP CODE – AIF', href: '/wp-content/uploads/2026/01/Stewarship-Code_NP-7Jan26.pdf', external: true, requiresAifDisclaimer: true },
       { label: 'CSR POLICY', href: '/wp-content/uploads/2026/06/CSR-policy-4-Jun-26.pdf', external: true },
       { label: 'POSH POLICY', href: '/wp-content/uploads/2026/08/POSH-Policy-29-May-2026.pdf', external: true },
       { label: 'REGULATORY INFORMATION', href: '/about-us/regulatory-details' },
@@ -213,16 +214,22 @@ export default function Navbar() {
     return false
   }
 
-  const renderLink = (item: Pick<DropdownItem, 'href' | 'external' | 'label'>, className?: string) => {
+  const renderLink = (item: Pick<DropdownItem, 'href' | 'external' | 'label' | 'requiresAifDisclaimer'>, className?: string) => {
+    const aifGateAttribute = item.requiresAifDisclaimer ? true : undefined
+    const closeNavigation = () => {
+      setMobileOpen(false)
+      setOpenDropdown(null)
+      setOpenSubDropdown(null)
+    }
     if (item.external) {
       return (
-        <a href={item.href} target="_blank" rel="noopener noreferrer" className={className}>
+        <a href={item.href} target="_blank" rel="noopener noreferrer" className={className} data-aif-disclaimer={aifGateAttribute} onClick={closeNavigation}>
           <span className="navbar__label">{item.label}</span>
         </a>
       )
     }
     return (
-      <Link to={item.href!} className={className} onClick={() => setMobileOpen(false)}>
+      <Link to={item.href!} className={className} onClick={closeNavigation} data-aif-disclaimer={aifGateAttribute}>
         <span className="navbar__label">{item.label}</span>
       </Link>
     )
@@ -308,29 +315,13 @@ export default function Navbar() {
                               >
                                 {sub.dropdown.map((child, k) => (
                                   <li key={k} className="navbar__dropdown-item">
-                                    {child.external ? (
-                                      <a href={child.href} target="_blank" rel="noopener noreferrer" className="navbar__dropdown-link">
-                                        {child.label}
-                                      </a>
-                                    ) : (
-                                      <Link to={child.href!} className="navbar__dropdown-link" onClick={() => setOpenDropdown(null)}>
-                                        {child.label}
-                                      </Link>
-                                    )}
+                                    {renderLink(child, 'navbar__dropdown-link')}
                                   </li>
                                 ))}
                               </ul>
                             </>
                           ) : (
-                            sub.external ? (
-                              <a href={sub.href} target="_blank" rel="noopener noreferrer" className="navbar__dropdown-link">
-                                {sub.label}
-                              </a>
-                            ) : (
-                              <Link to={sub.href!} className="navbar__dropdown-link" onClick={() => setOpenDropdown(null)}>
-                                {sub.label}
-                              </Link>
-                            )
+                            renderLink(sub, 'navbar__dropdown-link')
                           )}
                         </li>
                       ))}
@@ -410,29 +401,13 @@ export default function Navbar() {
                                 >
                                   {sub.dropdown.map((child, k) => (
                                     <li key={k} className="mobile-menu__sub-child-item">
-                                      {child.external ? (
-                                        <a href={child.href} target="_blank" rel="noopener noreferrer" className="mobile-menu__sub-child-link" onClick={() => setMobileOpen(false)}>
-                                          {child.label}
-                                        </a>
-                                      ) : (
-                                        <Link to={child.href!} className="mobile-menu__sub-child-link" onClick={() => setMobileOpen(false)}>
-                                          {child.label}
-                                        </Link>
-                                      )}
+                                      {renderLink(child, 'mobile-menu__sub-child-link')}
                                     </li>
                                   ))}
                                 </ul>
                               </>
                             ) : (
-                              sub.external ? (
-                                <a href={sub.href} target="_blank" rel="noopener noreferrer" className="mobile-menu__sub-link" onClick={() => setMobileOpen(false)}>
-                                  {sub.label}
-                                </a>
-                              ) : (
-                                <Link to={sub.href!} className="mobile-menu__sub-link" onClick={() => setMobileOpen(false)}>
-                                  {sub.label}
-                                </Link>
-                              )
+                              renderLink(sub, 'mobile-menu__sub-link')
                             )}
                           </li>
                         );
