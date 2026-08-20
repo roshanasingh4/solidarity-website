@@ -80,6 +80,8 @@ test('dialogs expose required WCAG modal behavior', async () => {
   assert.match(styles, /:focus-visible/)
   assert.match(styles, /@media \(prefers-reduced-motion: reduce\)/)
   assert.match(styles, /min-height: 48px/)
+  assert.match(styles, /\.compliance-gate__copy\s*\{[^}]*text-align: justify;/s)
+  assert.match(styles, /@media \(max-width: 520px\)[\s\S]*\.compliance-gate__copy\s*\{[^}]*text-align: left;/)
   assert.match(styles, /body\.compliance-gate-open #navigate-accessibility-widget-root/)
   assert.match(styles, /display: none !important/)
 })
