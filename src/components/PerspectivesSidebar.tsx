@@ -14,9 +14,9 @@ const CATEGORIES = [
 ]
 
 const DEFAULT_LATEST_SLUGS = [
+  'brief-update-from-our-vantage-point-20-aug-2026',
   'investment-thesis-on-vasa-denticity',
   'investment-thesis-on-synergy-green-industries-ltd',
-  'investment-thesis-on-yasho-industries-limited',
 ]
 
 interface Props {

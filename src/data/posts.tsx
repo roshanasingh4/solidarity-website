@@ -23,6 +23,37 @@ export interface PostData {
 
 export const ALL_POSTS: PostData[] = [
   {
+    id: "blog-vantage-point-2026-08-20",
+    slug: "brief-update-from-our-vantage-point-20-aug-2026",
+    title: "Brief update from our vantage point - 20 Aug 2026",
+    date: "August 20, 2026",
+    author: "Solidarity Investment Managers",
+    categories: ["Blogs"],
+    categoryLinks: [{ label: "Blogs", path: "/perspectives/blogs" }],
+    excerpt: (
+      <p>
+        A brief update on how we are seeing things at present from our vantage
+        point.
+      </p>
+    ),
+    content: (
+      <div className="post-content">
+        <p>
+          Please read our{' '}
+          <a
+            href="/wp-content/uploads/2026/08/Brief-update-from-our-vantage-point-20-Aug-2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Brief update from our vantage point - 20 August 2026 (PDF, opens in a new tab)"
+          >
+            Brief update from our vantage point - 20 August 2026 (PDF)
+          </a>
+          . The document opens in a new tab.
+        </p>
+      </div>
+    ),
+  },
+  {
     id: "cp-27-vasa",
     slug: "investment-thesis-on-vasa-denticity",
     title: "Investment Thesis on Vasa Denticity",
