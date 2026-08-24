@@ -48,7 +48,7 @@ export const ALL_POSTS: PostData[] = [
           >
             Brief update from our vantage point - 20 August 2026 (PDF)
           </a>
-          . The document opens in a new tab.
+          .
         </p>
       </div>
     ),

@@ -45,6 +45,7 @@ test('the Insight links accessibly to the published PDF in a new tab', async () 
   assert.match(postBlock, /rel="noopener noreferrer"/)
   assert.match(postBlock, /aria-label="Brief update from our vantage point - 20 August 2026 \(PDF, opens in a new tab\)"/)
   assert.match(postBlock, />\s*Brief update from our vantage point - 20 August 2026 \(PDF\)\s*<\/a>/)
+  assert.doesNotMatch(postBlock, /The document opens in a new tab\./)
   assert.doesNotMatch(postBlock, />\s*here\s*<\/a>/i)
 })
 

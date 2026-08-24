@@ -69,6 +69,7 @@ const navItems: NavItem[] = [
     label: 'Disclosures',
     dropdown: [
       { label: 'DISCLOSURE DOCUMENT', href: '/wp-content/uploads/2026/01/Disclosure_document_SAPL_22_Jan_2026.pdf', external: true },
+      { label: 'Centralised Reporting Mechanism for Demised Investor', href: '/wp-content/uploads/2026/08/SOP_Centralised_Reporting_Mechanism_for_Demised_Investor.pdf', external: true },
       { label: 'FEE CALCULATION TOOL', href: '/fee-calculation-tool' },
       { label: 'UPI PAYMENT DETAILS', href: '/upi-payment-details' },
       { label: 'STEWARDSHIP CODE – AIF', href: '/wp-content/uploads/2026/01/Stewarship-Code_NP-7Jan26.pdf', external: true, requiresAifDisclaimer: true },
