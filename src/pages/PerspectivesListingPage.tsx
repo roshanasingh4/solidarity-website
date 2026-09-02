@@ -66,6 +66,7 @@ const BLOGS_SLUG_SEQUENCE = [
 /** Select Company Perspectives only: order matches pagination (10 + 10 + 9 + 9). Slugs from post `slug` fields (ref-style paths). Same slug is not repeated (QSR note and Restaurant Brands Asia share one post). */
 const COMPANY_PERSPECTIVE_SLUG_SEQUENCE = [
   // Page 1
+  "investment-thesis-on-mamata-machinery",
   "investment-thesis-on-vasa-denticity",
   "investment-thesis-on-synergy-green-industries-ltd",
   "investment-thesis-on-yasho-industries-limited",

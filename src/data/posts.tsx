@@ -8,6 +8,10 @@ import SSROETable from "../components/SSROETable";
 import FinancialsTable from "../components/FinancialsTable";
 import PositionIRRTable from "../components/PositionIRRTable";
 import GAAPIFRSTable from "../components/GAAPIFRSTable";
+import {
+  mamataMachineryContent,
+  mamataMachineryExcerpt,
+} from "./mamataMachineryArticle";
 
 export interface PostData {
   id: string;
@@ -22,6 +26,27 @@ export interface PostData {
 }
 
 export const ALL_POSTS: PostData[] = [
+  {
+    id: "cp-28-mamata-machinery",
+    slug: "investment-thesis-on-mamata-machinery",
+    title: "Investment Thesis on Mamata Machinery",
+    date: "August 31, 2026",
+    author: "Solidarity Investment Managers",
+    categories: ["Company Perspective"],
+    categoryLinks: [
+      {
+        label: "Select Company Perspectives",
+        path: "/perspectives/company-perspective",
+      },
+    ],
+    excerpt: <div dangerouslySetInnerHTML={{ __html: mamataMachineryExcerpt }} />,
+    content: (
+      <div
+        className="post-content"
+        dangerouslySetInnerHTML={{ __html: mamataMachineryContent }}
+      />
+    ),
+  },
   {
     id: "blog-vantage-point-2026-08-20",
     slug: "brief-update-from-our-vantage-point-20-aug-2026",

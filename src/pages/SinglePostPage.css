@@ -84,7 +84,9 @@
 
 /* ── Article content ── */
 .post-content {
-  flex: 2;
+  flex: 2 1 0;
+  width: 100%;
+  max-width: 100%;
   min-width: 0;
   background: #fff;
 }
@@ -93,6 +95,15 @@
   font-size: 1rem;
   line-height: 1.8;
   color: #333;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.post-article-body > .post-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .post-article-body p {
@@ -171,6 +182,32 @@
   line-height: 1.6;
 }
 
+.post-article-body .wp-block-table {
+  width: 100%;
+  max-width: 100%;
+  margin: 2rem 0;
+  overflow-x: auto;
+}
+
+@media (max-width: 600px) {
+  .post-article-body .wp-block-table table {
+    min-width: 620px;
+  }
+}
+
+.post-article-body .wp-block-table:focus-visible {
+  outline: 3px solid var(--color-h4);
+  outline-offset: 3px;
+}
+
+.post-article-body table caption {
+  padding: 0 0 0.75rem;
+  color: #1a1a1a;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  text-align: left;
+}
+
 .post-article-body th,
 .post-article-body td,
 .post-article-body .wp-block-table th,
@@ -192,6 +229,54 @@
 .post-article-body tbody tr:nth-child(even),
 .post-article-body .wp-block-table tbody tr:nth-child(even) {
   background: #f8f9fb;
+}
+
+.post-article-body .article-data-table {
+  max-width: 100%;
+  margin: 2rem 0;
+  overflow-x: auto;
+  border: 1px solid #d0d5e0;
+  border-radius: 4px;
+  background: #f8f9fb;
+}
+
+.post-article-body .article-data-table:focus-visible {
+  outline: 3px solid var(--color-h4);
+  outline-offset: 3px;
+}
+
+.post-article-body .article-data-table pre {
+  width: max-content;
+  min-width: 100%;
+  margin: 0;
+  padding: 1rem;
+  font: 0.8125rem/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre;
+}
+
+.post-article-body .article-figure {
+  margin: 2rem 0;
+}
+
+.post-article-body .article-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid #e2e5ea;
+}
+
+.post-article-body .article-figure figcaption,
+.post-article-body .article-note {
+  color: #626872;
+  font-size: 0.8125rem;
+  line-height: 1.55;
+}
+
+.post-article-body .article-download {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #dfe3e8;
+  font-weight: 700;
 }
 
 /* ── Footer ── */
