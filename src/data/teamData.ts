@@ -39,7 +39,7 @@ const teamMembers: TeamMember[] = [
   {
     slug: 'aman-thadani',
     name: 'Aman Thadani',
-    role: 'Partner',
+    role: 'Senior Analyst',
     photo: '/assets/team/Aman_Thadani.png',
     bio: 'A graduate from HR College, Mumbai, Aman worked as a research analyst at Consortium PMS before joining Solidarity. He has also completed his CFA. Outside of work, Aman enjoys reading, playing chess and spending time with family.',
   },
