@@ -43,7 +43,7 @@ export default function ProductOfferingPage() {
           <p className="product-offering-presentation">
             Please click{' '}
             <a
-              href="/wp-content/uploads/2026/08/Introduction-to-Solidarity-7-Aug-2026.pdf"
+              href="/wp-content/uploads/2026/09/Introduction-to-Solidarity-8-Sep-2026.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="presentation-link"
