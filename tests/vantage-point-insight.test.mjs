@@ -10,7 +10,7 @@ const pdfPath = new URL(
   import.meta.url,
 )
 
-test('the August vantage-point Insight is listed first', async () => {
+test('the August vantage-point Insight remains listed after the September Insight', async () => {
   const [posts, listing, sidebar] = await Promise.all([
     readFile(postsPath, 'utf8'),
     readFile(listingPath, 'utf8'),
@@ -21,11 +21,11 @@ test('the August vantage-point Insight is listed first', async () => {
   assert.match(posts, /title: "Brief update from our vantage point - 20 Aug 2026"/)
   assert.match(
     listing,
-    /const BLOGS_SLUG_SEQUENCE = \[\s*\/\/ Page 1\s*"brief-update-from-our-vantage-point-20-aug-2026"/,
+    /const BLOGS_SLUG_SEQUENCE = \[\s*\/\/ Page 1\s*"resilience-over-speed",\s*"brief-update-from-our-vantage-point-20-aug-2026"/,
   )
   assert.match(
     sidebar,
-    /const DEFAULT_LATEST_SLUGS = \[\s*'brief-update-from-our-vantage-point-20-aug-2026'/,
+    /const DEFAULT_LATEST_SLUGS = \[\s*'resilience-over-speed',\s*'brief-update-from-our-vantage-point-20-aug-2026'/,
   )
 })
 

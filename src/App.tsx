@@ -29,6 +29,7 @@ import SinglePostPage from './pages/SinglePostPage'
 import InvestmentApproachPage from './pages/InvestmentApproachPage'
 import VotingDisclosuresPage from './pages/VotingDisclosuresPage'
 import EmpaneledDistributorsPage from './pages/EmpaneledDistributorsPage'
+import { getPost } from './data/posts'
 
 import './App.css'
 
@@ -58,7 +59,10 @@ function getTitleForPath(pathname: string): string {
   else if (pathname === '/perspectives/macro-environment') title = "Macro Environment"
   else if (pathname === '/perspectives/venture-capital') title = "Venture Capital"
   else if (pathname === '/perspectives/quarterly-letters') title = "Quarterly Letters"
-  else if (pathname.startsWith('/perspectives/post')) title = "Perspective"
+  else if (pathname.startsWith('/perspectives/post/')) {
+    const slug = pathname.slice('/perspectives/post/'.length)
+    title = getPost(slug)?.title ?? "Perspective"
+  }
   else if (pathname === '/contact-us') title = "Contact Us"
   else if (pathname === '/terms-conditions') title = "Terms and Conditions"
   else if (pathname === '/privacy-policy') title = "Privacy Policy"

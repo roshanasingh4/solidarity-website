@@ -14,9 +14,9 @@ const CATEGORIES = [
 ]
 
 const DEFAULT_LATEST_SLUGS = [
+  'resilience-over-speed',
   'brief-update-from-our-vantage-point-20-aug-2026',
   'investment-thesis-on-vasa-denticity',
-  'investment-thesis-on-synergy-green-industries-ltd',
 ]
 
 interface Props {

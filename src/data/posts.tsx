@@ -27,6 +27,39 @@ export interface PostData {
 
 export const ALL_POSTS: PostData[] = [
   {
+    id: "blog-resilience-over-speed-2026-09-09",
+    slug: "resilience-over-speed",
+    title: "Resilience over Speed",
+    date: "September 9, 2026",
+    author: "Manish Gupta",
+    categories: ["Blogs"],
+    categoryLinks: [{ label: "Insights", path: "/perspectives/blogs" }],
+    excerpt: (
+      <p>
+        A framework for long-term investing: finding an approach that fits your
+        goals and temperament, with resilience over speed.
+      </p>
+    ),
+    content: (
+      <div className="post-content">
+        <p>
+          In this presentation, Manish Gupta shares a framework for long-term
+          investing and why we choose resilience over speed.
+        </p>
+        <p>
+          <a
+            href="/wp-content/uploads/2026/09/Resilience-over-Speed-Ashoka-12-Sep-2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Read Resilience over Speed presentation (PDF, opens in a new tab)"
+          >
+            Read Resilience over Speed presentation (PDF)
+          </a>
+        </p>
+      </div>
+    ),
+  },
+  {
     id: "cp-28-mamata-machinery",
     slug: "investment-thesis-on-mamata-machinery",
     title: "Investment Thesis on Mamata Machinery",

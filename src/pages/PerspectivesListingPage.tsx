@@ -10,6 +10,7 @@ const POSTS_PER_PAGE = 10;
 /** Curated blogs only: order matches site pagination (10 per page × 5 pages). Slugs align with ref-style paths (title lowercased, spaces → `-`). */
 const BLOGS_SLUG_SEQUENCE = [
   // Page 1
+  "resilience-over-speed",
   "brief-update-from-our-vantage-point-20-aug-2026",
   "perspective-on-qsr-sector-and-rba",
   "solidarity-partners-meet-interview-with-dr-harin-kanani-mr-prabh-mehar-singh",
