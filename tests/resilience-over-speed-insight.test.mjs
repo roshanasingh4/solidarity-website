@@ -21,10 +21,9 @@ test('Resilience over Speed is an Insight with the requested display date and ac
   assert.match(entry, /slug: "resilience-over-speed"/)
   assert.match(entry, /date: "September 9, 2026"/)
   assert.match(entry, /categories: \["Blogs"\]/)
-  assert.match(
-    entry,
-    /In conversation with students at Ashoka University, Manish Gupta shares\s+his framework for long-term investing—and why we choose resilience over\s+speed\./,
-  )
+  const approvedSummary = 'In conversation with students at Ashoka University, Manish Gupta shares his framework for long-term investing—and why we choose resilience over speed.'
+  assert.equal(entry.match(new RegExp(approvedSummary.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'))?.length, 2)
+  assert.doesNotMatch(entry, /In this presentation, Manish Gupta shares/)
   assert.match(entry, /href="\/wp-content\/uploads\/2026\/09\/Resilience-over-Speed-Ashoka-12-Sep-2026\.pdf"/)
   assert.match(entry, /target="_blank"/)
   assert.match(entry, /rel="noopener noreferrer"/)

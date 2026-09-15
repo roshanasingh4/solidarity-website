@@ -35,18 +35,11 @@ export const ALL_POSTS: PostData[] = [
     categories: ["Blogs"],
     categoryLinks: [{ label: "Insights", path: "/perspectives/blogs" }],
     excerpt: (
-      <p>
-        In conversation with students at Ashoka University, Manish Gupta shares
-        his framework for long-term investing—and why we choose resilience over
-        speed.
-      </p>
+      <p>In conversation with students at Ashoka University, Manish Gupta shares his framework for long-term investing—and why we choose resilience over speed.</p>
     ),
     content: (
       <div className="post-content">
-        <p>
-          In this presentation, Manish Gupta shares a framework for long-term
-          investing and why we choose resilience over speed.
-        </p>
+        <p>In conversation with students at Ashoka University, Manish Gupta shares his framework for long-term investing—and why we choose resilience over speed.</p>
         <p>
           <a
             href="/wp-content/uploads/2026/09/Resilience-over-Speed-Ashoka-12-Sep-2026.pdf"
