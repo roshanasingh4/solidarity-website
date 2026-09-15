@@ -36,8 +36,9 @@ export const ALL_POSTS: PostData[] = [
     categoryLinks: [{ label: "Insights", path: "/perspectives/blogs" }],
     excerpt: (
       <p>
-        A framework for long-term investing: finding an approach that fits your
-        goals and temperament, with resilience over speed.
+        In conversation with students at Ashoka University, Manish Gupta shares
+        his framework for long-term investing—and why we choose resilience over
+        speed.
       </p>
     ),
     content: (
