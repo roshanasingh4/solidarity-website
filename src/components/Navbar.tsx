@@ -45,7 +45,7 @@ const navItems: NavItem[] = [
         dropdown: [
           { label: 'Product Offering', href: '/product-offering-2', requiresAifDisclaimer: true },
           { label: 'Investor charter', href: '/wp-content/uploads/2026/05/Investor-charter-for-AIF-16-Apr-26_V2.pdf', external: true, requiresAifDisclaimer: true },
-          { label: 'Investor complaints', href: '/wp-content/uploads/2026/06/Annexure B- JUN  26-NEW FORMAT-AIF_v2.pdf', external: true, requiresAifDisclaimer: true },
+          { label: 'Investor complaints', href: '/wp-content/uploads/2026/10/Annexure B- SEP 26-NEW FORMAT-AIF_v1.pdf', external: true, requiresAifDisclaimer: true },
           { label: 'Voting disclosures', href: '/product/aif/voting-disclosures', requiresAifDisclaimer: true },
         ],
       },
