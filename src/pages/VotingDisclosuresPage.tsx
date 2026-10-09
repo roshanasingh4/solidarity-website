@@ -18,6 +18,14 @@ export default function VotingDisclosuresPage() {
               >
                 Q1FY27
               </a>
+              <a
+                href="/wp-content/uploads/2026/10/Solidarity-Micro-Cap-Emerging-Leader-AIF-Voting-disclosures-Q2FY27.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="cta-btn voting-disclosures-btn"
+              >
+                Q2FY27
+              </a>
             </div>
           </div>
 
