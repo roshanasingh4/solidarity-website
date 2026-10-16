@@ -21,11 +21,11 @@ test('the August vantage-point Insight remains listed after the September Insigh
   assert.match(posts, /title: "Brief update from our vantage point - 20 Aug 2026"/)
   assert.match(
     listing,
-    /const BLOGS_SLUG_SEQUENCE = \[\s*\/\/ Page 1\s*"resilience-over-speed",\s*"brief-update-from-our-vantage-point-20-aug-2026"/,
+    /const BLOGS_SLUG_SEQUENCE = \[\s*\/\/ Page 1\s*"is-this-a-good-buying-opportunity",\s*"resilience-over-speed",\s*"brief-update-from-our-vantage-point-20-aug-2026"/,
   )
   assert.match(
     sidebar,
-    /const DEFAULT_LATEST_SLUGS = \[\s*'resilience-over-speed',\s*'brief-update-from-our-vantage-point-20-aug-2026'/,
+    /const DEFAULT_LATEST_SLUGS = \[\s*'is-this-a-good-buying-opportunity',\s*'resilience-over-speed',\s*'brief-update-from-our-vantage-point-20-aug-2026'/,
   )
 })
 

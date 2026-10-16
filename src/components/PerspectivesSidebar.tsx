@@ -14,9 +14,9 @@ const CATEGORIES = [
 ]
 
 const DEFAULT_LATEST_SLUGS = [
+  'is-this-a-good-buying-opportunity',
   'resilience-over-speed',
   'brief-update-from-our-vantage-point-20-aug-2026',
-  'investment-thesis-on-vasa-denticity',
 ]
 
 interface Props {

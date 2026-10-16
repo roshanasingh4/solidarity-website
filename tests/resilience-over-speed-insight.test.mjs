@@ -28,7 +28,10 @@ test('Resilience over Speed is an Insight with the requested display date and ac
   assert.match(entry, /target="_blank"/)
   assert.match(entry, /rel="noopener noreferrer"/)
   assert.match(entry, /aria-label="Read Resilience over Speed presentation \(PDF, opens in a new tab\)"/)
-  assert.match(listing, /const BLOGS_SLUG_SEQUENCE = \[\s*\/\/ Page 1\s*"resilience-over-speed"/)
+  assert.match(
+    listing,
+    /const BLOGS_SLUG_SEQUENCE = \[\s*\/\/ Page 1\s*"is-this-a-good-buying-opportunity",\s*"resilience-over-speed"/,
+  )
   assert.ok(pdf.length > 500_000)
   assert.equal(pdf.subarray(0, 5).toString('ascii'), '%PDF-')
 })

@@ -12,6 +12,10 @@ import {
   mamataMachineryContent,
   mamataMachineryExcerpt,
 } from "./mamataMachineryArticle";
+import {
+  goodBuyingOpportunityContent,
+  goodBuyingOpportunityExcerpt,
+} from "./goodBuyingOpportunityArticle";
 
 export interface PostData {
   id: string;
@@ -26,6 +30,26 @@ export interface PostData {
 }
 
 export const ALL_POSTS: PostData[] = [
+  {
+    id: "blog-good-buying-opportunity-2026-10-15",
+    slug: "is-this-a-good-buying-opportunity",
+    title: "Is this a good buying opportunity?",
+    date: "October 15, 2026",
+    author: "Solidarity Investment Managers",
+    categories: ["Blogs"],
+    categoryLinks: [{ label: "Blogs", path: "/perspectives/blogs" }],
+    excerpt: (
+      <div
+        dangerouslySetInnerHTML={{ __html: goodBuyingOpportunityExcerpt }}
+      />
+    ),
+    content: (
+      <div
+        className="post-content"
+        dangerouslySetInnerHTML={{ __html: goodBuyingOpportunityContent }}
+      />
+    ),
+  },
   {
     id: "blog-resilience-over-speed-2026-09-09",
     slug: "resilience-over-speed",
