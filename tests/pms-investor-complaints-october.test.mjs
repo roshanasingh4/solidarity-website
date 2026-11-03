@@ -4,20 +4,20 @@ import test from 'node:test'
 
 const navbarPath = new URL('../src/components/Navbar.tsx', import.meta.url)
 const pdfPath = new URL(
-  '../public/wp-content/uploads/2026/10/Annexure B- SEP 26-NEW FORMAT-PMS.pdf',
+  '../public/wp-content/uploads/2026/11/Annexure B- OCT 26-NEW FORMAT-PMS.pdf',
   import.meta.url,
 )
 
-test('PMS investor complaints links to the September 2026 PDF', async () => {
+test('PMS investor complaints links to the October 2026 PDF', async () => {
   const navbar = await readFile(navbarPath, 'utf8')
 
   assert.match(
     navbar,
-    /label: 'Investor complaints', href: '\/wp-content\/uploads\/2026\/10\/Annexure B- SEP 26-NEW FORMAT-PMS\.pdf', external: true/,
+    /label: 'Investor complaints', href: '\/wp-content\/uploads\/2026\/11\/Annexure B- OCT 26-NEW FORMAT-PMS\.pdf', external: true/,
   )
 })
 
-test('the September PMS complaints PDF retains its accessibility structure', async () => {
+test('the October PMS complaints PDF retains its accessibility structure', async () => {
   const pdf = await readFile(pdfPath)
   const source = pdf.toString('latin1')
 
