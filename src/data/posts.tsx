@@ -16,6 +16,10 @@ import {
   goodBuyingOpportunityContent,
   goodBuyingOpportunityExcerpt,
 } from "./goodBuyingOpportunityArticle";
+import {
+  sealmaticIndiaContent,
+  sealmaticIndiaExcerpt,
+} from "./sealmaticIndiaArticle";
 
 export interface PostData {
   id: string;
@@ -30,6 +34,27 @@ export interface PostData {
 }
 
 export const ALL_POSTS: PostData[] = [
+  {
+    id: "cp-29-sealmatic-india",
+    slug: "investment-thesis-on-sealmatic-india",
+    title: "Investment Thesis on Sealmatic India",
+    date: "November 5, 2026",
+    author: "Solidarity Investment Managers",
+    categories: ["Company Perspective"],
+    categoryLinks: [
+      {
+        label: "Select Company Perspectives",
+        path: "/perspectives/company-perspective",
+      },
+    ],
+    excerpt: <div dangerouslySetInnerHTML={{ __html: sealmaticIndiaExcerpt }} />,
+    content: (
+      <div
+        className="post-content"
+        dangerouslySetInnerHTML={{ __html: sealmaticIndiaContent }}
+      />
+    ),
+  },
   {
     id: "blog-good-buying-opportunity-2026-10-15",
     slug: "is-this-a-good-buying-opportunity",
