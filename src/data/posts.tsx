@@ -2699,7 +2699,7 @@ export const ALL_POSTS: PostData[] = [
     title: "investment thesis on racl geartech",
     date: "October 9, 2024",
     author: "Solidarity Investment Managers",
-    categories: ["Blogs", "Company Perspective"],
+    categories: ["Company Perspective"],
     categoryLinks: [
       {
         label: "Select Company Perspectives",
