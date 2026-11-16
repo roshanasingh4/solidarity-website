@@ -56,6 +56,7 @@ const navItems: NavItem[] = [
     dropdown: [
       { label: 'Insights', href: '/perspectives/blogs' },
       { label: 'Select Company Perspectives', href: '/perspectives/company-perspective' },
+      { label: 'Leadership Conversations', href: '/perspectives/leadership-conversations' },
       { label: 'Letters to Partners', href: '/perspectives/quarterly-letters' },
       { label: 'Perspectives on Questions from Client Partners', href: '/perspectives/client-questions' },
     ],
@@ -68,7 +69,7 @@ const navItems: NavItem[] = [
   {
     label: 'Disclosures',
     dropdown: [
-      { label: 'DISCLOSURE DOCUMENT', href: '/wp-content/uploads/2026/01/Disclosure_document_SAPL_22_Jan_2026.pdf', external: true },
+      { label: 'DISCLOSURE DOCUMENT', href: '/wp-content/uploads/2026/11/Disclosure-document-Nov-2026-Solidarity.pdf', external: true },
       { label: 'Centralised Reporting Mechanism for Demised Investor', href: '/wp-content/uploads/2026/08/SOP_Centralised_Reporting_Mechanism_for_Demised_Investor.pdf', external: true },
       { label: 'FEE CALCULATION TOOL', href: '/fee-calculation-tool' },
       { label: 'UPI PAYMENT DETAILS', href: '/upi-payment-details' },

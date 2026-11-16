@@ -14,7 +14,6 @@ const BLOGS_SLUG_SEQUENCE = [
   "resilience-over-speed",
   "brief-update-from-our-vantage-point-20-aug-2026",
   "perspective-on-qsr-sector-and-rba",
-  "solidarity-partners-meet-interview-with-dr-harin-kanani-mr-prabh-mehar-singh",
   "stillness-backing-a-mission-oriented-promoter-and-the-rewards-of-good-karma-rakesh-jhunjhunwalas-incredible-340x-returns-in-inventurus",
   "what-i-learned-from-rakesh-jhunjhunwala",
   "consequences-of-putins-war-in-ukraine",
@@ -76,7 +75,6 @@ const COMPANY_PERSPECTIVE_SLUG_SEQUENCE = [
   "investment-thesis-on-axtel-industries",
   "investment-thesis-on-sansera-engineering",
   "investment-thesis-on-pix-transmissions-limited",
-  "solidarity-partners-meet-interview-with-dr-harin-kanani-mr-prabh-mehar-singh",
   "investment-thesis-of-our-top-15-positions-in-our-prudence-scheme",
   "investment-in-shivalik-bimetal-controls-ltd-2",
   "investment-thesis-on-indiamart",
@@ -119,7 +117,6 @@ const EQUITY_SLUG_SEQUENCE = [
   "investment-thesis-on-synergy-green-industries-ltd",
   "perspective-on-qsr-sector-and-rba",
   "interview-with-mr-anurag-surana-a-domain-expert-on-specialty-chemicals-for-his-decadal-views-on-the-industry",
-  "solidarity-partners-meet-interview-with-dr-harin-kanani-mr-prabh-mehar-singh",
   "investment-implications-for-indian-investors-in-a-trumpian-world",
   "moving-forward-with-strategy-not-with-emotion-our-view-on-investing-in-small-and-mid-caps-at-present",
   "investment-thesis-on-yasho-industries",
@@ -183,7 +180,6 @@ const ASSET_ALLOCATION_SLUG_SEQUENCE = [
 const INVESTMENT_MANAGEMENT_SLUG_SEQUENCE = [
   // Page 1
   "interview-with-mr-anurag-surana-a-domain-expert-on-specialty-chemicals-for-his-decadal-views-on-the-industry",
-  "solidarity-partners-meet-interview-with-dr-harin-kanani-mr-prabh-mehar-singh",
   "moving-forward-with-strategy-not-with-emotion-our-view-on-investing-in-small-and-mid-caps-at-present",
   "stillness-backing-a-mission-oriented-promoter-and-the-rewards-of-good-karma-rakesh-jhunjhunwalas-incredible-340x-returns-in-inventurus",
   "what-explains-our-optimism-when-they-are-lower-roe-vs-consumer-companies-and-hardly-generate-any-free-cash-flow",

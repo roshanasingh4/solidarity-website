@@ -56,6 +56,7 @@ function getTitleForPath(pathname: string): string {
   else if (pathname === '/perspectives/asset-allocation') title = "Asset Allocation"
   else if (pathname === '/perspectives/equity') title = "Equity"
   else if (pathname === '/perspectives/investment-management') title = "Investment Management"
+  else if (pathname === '/perspectives/leadership-conversations') title = "Leadership Conversations"
   else if (pathname === '/perspectives/macro-environment') title = "Macro Environment"
   else if (pathname === '/perspectives/venture-capital') title = "Venture Capital"
   else if (pathname === '/perspectives/quarterly-letters') title = "Quarterly Letters"
@@ -158,6 +159,7 @@ function AppShell() {
         <Route path="/perspectives/asset-allocation"   element={<PerspectivesListingPage categoryTitle="Asset Allocation" filterCategory="Asset Allocation" />} />
         <Route path="/perspectives/equity"             element={<PerspectivesListingPage categoryTitle="Equity" filterCategory="Equity" />} />
         <Route path="/perspectives/investment-management" element={<PerspectivesListingPage categoryTitle="Investment Management" filterCategory="Investment Management" />} />
+        <Route path="/perspectives/leadership-conversations" element={<PerspectivesListingPage categoryTitle="Leadership Conversations" filterCategory="Leadership Conversations" />} />
         <Route path="/perspectives/macro-environment"  element={<PerspectivesListingPage categoryTitle="Macro Environment" filterCategory="Macro Environment" />} />
         <Route path="/perspectives/venture-capital"    element={<PerspectivesListingPage categoryTitle="Venture Capital" filterCategory="Venture Capital" />} />
         <Route path="/perspectives/quarterly-letters"  element={<QuarterlyLettersPage />} />

@@ -314,7 +314,7 @@ const sections: FAQSection[] = [
               The disclosure document is made available on the website of the
               Portfolio Manager in the{" "}
               <a
-                href="https://www.solidarity.in/wp-content/uploads/2025/06/Disclosure-document-Oct2024-v2.pdf"
+                href="https://www.solidarity.in/wp-content/uploads/2026/11/Disclosure-document-Nov-2026-Solidarity.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
               >

@@ -7,6 +7,7 @@ const CATEGORIES = [
   { label: 'Asset Allocation',                              path: '/perspectives/asset-allocation' },
   { label: 'Equity',                                        path: '/perspectives/equity' },
   { label: 'Investment Management',                         path: '/perspectives/investment-management' },
+  { label: 'Leadership Conversations',                      path: '/perspectives/leadership-conversations' },
   { label: 'Macro Environment',                             path: '/perspectives/macro-environment' },
   { label: 'Perspective On Questions From Client Partners', path: '/perspectives/client-questions' },
   { label: 'Select Company Perspectives',                   path: '/perspectives/company-perspective' },

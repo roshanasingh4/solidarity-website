@@ -16,6 +16,7 @@ import {
   goodBuyingOpportunityContent,
   goodBuyingOpportunityExcerpt,
 } from "./goodBuyingOpportunityArticle";
+import { LEADERSHIP_CONVERSATION_POSTS } from "./leadershipConversations";
 
 export interface PostData {
   id: string;
@@ -30,6 +31,7 @@ export interface PostData {
 }
 
 export const ALL_POSTS: PostData[] = [
+  ...LEADERSHIP_CONVERSATION_POSTS,
   {
     id: "blog-good-buying-opportunity-2026-10-15",
     slug: "is-this-a-good-buying-opportunity",
@@ -630,12 +632,11 @@ export const ALL_POSTS: PostData[] = [
       "Solidarity Partners Meet - interview with promoters of RACL GearTech & Neogen Chemicals",
     date: "June 12, 2025",
     author: "Solidarity Investment Managers",
-    categories: ["Blogs", "Investment Management", "Equity"],
+    categories: ["Leadership Conversations"],
     categoryLinks: [
-      { label: "Blogs", path: "/perspectives/blogs" },
       {
-        label: "Investment Management",
-        path: "/perspectives/investment-management",
+        label: "Leadership Conversations",
+        path: "/perspectives/leadership-conversations",
       },
     ],
     excerpt: (
