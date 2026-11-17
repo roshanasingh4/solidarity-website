@@ -33,6 +33,38 @@ export interface PostData {
 export const ALL_POSTS: PostData[] = [
   ...LEADERSHIP_CONVERSATION_POSTS,
   {
+    id: "cp-update-on-hdfc-bank-2026-11-17",
+    slug: "update-on-hdfc-bank-ltd",
+    title: "Update on HDFC Bank Ltd",
+    date: "November 17, 2026",
+    author: "Solidarity Investment Managers",
+    categories: ["Company Perspective"],
+    categoryLinks: [
+      {
+        label: "Select Company Perspectives",
+        path: "/perspectives/company-perspective",
+      },
+    ],
+    excerpt: <p>Update on HDFC Bank Ltd.</p>,
+    content: (
+      <div className="post-content">
+        <p>
+          Please read our latest update on HDFC Bank Ltd.
+        </p>
+        <p>
+          <a
+            href="/wp-content/uploads/2026/11/Update-on-HDFC-Bank-17-November-2026.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Read Update on HDFC Bank Ltd (PDF, opens in a new tab)"
+          >
+            Read Update on HDFC Bank Ltd (PDF)
+          </a>
+        </p>
+      </div>
+    ),
+  },
+  {
     id: "blog-good-buying-opportunity-2026-10-15",
     slug: "is-this-a-good-buying-opportunity",
     title: "Is this a good buying opportunity?",
