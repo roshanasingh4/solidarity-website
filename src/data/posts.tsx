@@ -16,6 +16,10 @@ import {
   goodBuyingOpportunityContent,
   goodBuyingOpportunityExcerpt,
 } from "./goodBuyingOpportunityArticle";
+import {
+  hdfcBankUpdateContent,
+  hdfcBankUpdateExcerpt,
+} from "./hdfcBankUpdateArticle";
 import { LEADERSHIP_CONVERSATION_POSTS } from "./leadershipConversations";
 
 export interface PostData {
@@ -45,23 +49,14 @@ export const ALL_POSTS: PostData[] = [
         path: "/perspectives/company-perspective",
       },
     ],
-    excerpt: <p>Update on HDFC Bank Ltd.</p>,
+    excerpt: (
+      <div dangerouslySetInnerHTML={{ __html: hdfcBankUpdateExcerpt }} />
+    ),
     content: (
-      <div className="post-content">
-        <p>
-          Please read our latest update on HDFC Bank Ltd.
-        </p>
-        <p>
-          <a
-            href="/wp-content/uploads/2026/11/Update-on-HDFC-Bank-17-November-2026.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Read Update on HDFC Bank Ltd (PDF, opens in a new tab)"
-          >
-            Read Update on HDFC Bank Ltd (PDF)
-          </a>
-        </p>
-      </div>
+      <div
+        className="post-content"
+        dangerouslySetInnerHTML={{ __html: hdfcBankUpdateContent }}
+      />
     ),
   },
   {
